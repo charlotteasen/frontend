@@ -35,6 +35,7 @@ web/uploads/tx_extensionbuilder/backups/*
 node_modules
 node_modules/*
 Gruntfile.js
+.sass-cache
 # paste your lines here
 
 !.gitignore
