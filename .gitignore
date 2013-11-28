@@ -1,0 +1,41 @@
+#unix
+*.log
+*~
+.ssh/*
+build/
+
+#win
+thumbs.db
+Thumbs.db
+
+#macos
+.DS_Store
+._.DS.Store
+
+# CI / Jenkins
+build/*
+
+# eclipse
+.project
+.project/*
+.buildpath
+.buildpath/*
+.settings
+.settings/*
+.externalToolBuilders
+.externalToolBuilders/*
+
+# Typo3
+web/typo3temp/*
+web/typo3conf/deprecation_*
+web/typo3conf/temp_CACHED_*
+web/uploads/tx_extensionbuilder/backups/*
+
+# individual ignores
+node_modules
+node_modules/*
+Gruntfile.js
+# paste your lines here
+
+!.gitignore
+!empty

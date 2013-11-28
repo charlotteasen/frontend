@@ -1,0 +1,50 @@
+<f:cObject typoscriptObjectPath="lib.headerImage" />
+
+<div id="wrapper" style="font-family: Verdana; font-size: 14px;">
+
+    <div style="float: left; width: 33%; background-color: Gainsboro;">
+        <f:format.raw>{langMenu}</f:format.raw>
+    </div>
+
+    <div style="float: left; width: 33%; background-color: AliceBlue;">
+        <f:format.raw>{mainMenu}</f:format.raw>
+    </div>
+
+    <div style="float: left; width: 33%; background-color: AntiqueWhite;">
+        <f:format.raw>{content}</f:format.raw>
+
+        Plugin via TypoScript:
+        <f:cObject typoscriptObjectPath="lib.ajaxPlugin" />
+
+    </div>
+
+    <div style="clear: both; margin-top: 20px;"></div>
+
+    <f:cObject typoscriptObjectPath="lib.test1" />
+
+    <br />
+
+    <f:format.raw>{test2}</f:format.raw>
+
+    <br />
+
+    Today is: <span id="day"></span>
+
+    <br />
+
+    <f:if condition="{data.layout}==1">
+        <f:then>
+            Layout 1 selected
+        </f:then>
+        <f:else>
+            Layout 1 not selected
+        </f:else>
+    </f:if>
+
+    <f:comment>
+        <f:debug>{data}</f:debug>
+    </f:comment>
+
+</div>
+
+<f:cObject typoscriptObjectPath="lib.googleAnalytics" />
