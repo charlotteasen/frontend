@@ -1,26 +1,24 @@
 {
-  "name": "frontend",
-  "version": "1.0.0",
+  "name": "grunt-guide",
+  "version": "0.0.1",
+  "description": "",
+  "homepage": "",
+  "keywords": [],
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.6.3",
-    "grunt-contrib-cssmin": "~0.7.0",
-    "grunt-contrib-nodeunit": "~0.2.0",
-    "grunt-minified": "0.0.6",
-    "grunt-contrib-sass": "~0.5.1",
-    "grunt-browser-sync": "~0.2.7",
-    "grunt-contrib-watch": "~0.5.3"
-  },
-  "dependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-cssmin": "~0.7.0",
-    "grunt-minified": "0.0.6",
-    "grunt-contrib-sass": "~0.5.1",
-    "grunt-browser-sync": "~0.2.7",
-    "imagemin-gifsicle": "~0.1.1",
-    "imagemin-jpegtran": "~0.1.0",
-    "imagemin-optipng": "~0.1.0",
-    "imagemin-svgo": "~0.1.0"
+    "bower": "*",
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "*",
+    "grunt-browser-sync": "^1.3.0",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-htmlmin": "^0.3.0",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-sass": "^0.7.3",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-update-json": "*",
+    "load-grunt-tasks": "*"
   }
 }
