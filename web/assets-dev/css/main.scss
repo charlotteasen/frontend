@@ -21,8 +21,8 @@ $large-spacing: $standard-spacing * 2;
 /* = Variablen (Farben, Fonts, etc) */
 
 /* + Reset */
-* { margin:0; padding:0; outline:none; border:none; }
-@import "modules/reset"; /* box-sizing reset and customized normalize.css v3.0.0 */
+@import "modules/normalize"; /* customized normalize.css v3.0.0 */
+@import "modules/reset"; /* reset/normalize extensions */
 /* = Reset */
 
 /* + General styles (Typo, Formulare, Tabellen, etc) */

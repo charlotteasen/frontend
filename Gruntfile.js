@@ -2,6 +2,7 @@ module.exports = function(grunt) {
     'use strict';
 
 
+
     /* + Global Project Vars */
     // Usage: <%= globalConfig.var %>
     var globalConfig = {
@@ -12,16 +13,21 @@ module.exports = function(grunt) {
     };
     /* = Global Project Vars */
 
+
+
     /* + Preparation */
     require('load-grunt-tasks')(grunt); // Load all grunt tasks matching the `grunt-*` pattern
     grunt.util.linefeed = '\n'; // Force use of Unix newlines
     /* = Preparation */
 
 
-    /* + Project Configuration */
+
+    /* + Project Tasks */
     grunt.initConfig({
         globalConfig: globalConfig, // include Global Config
-        pkg: grunt.file.readJSON('package.json'), // Get NPM data
+        pkg: grunt.file.readJSON('package.json'), // Get npm package data
+
+
 
         /* + Task Config: Clean */
         clean: {
@@ -30,6 +36,8 @@ module.exports = function(grunt) {
             ]
         },
         /* = Task Config: Clean */
+
+
 
         /* + Task Config: Copy dependency files */
         copy: {
@@ -45,6 +53,8 @@ module.exports = function(grunt) {
         },
         /* = Task Config: Copy dependency files */
 
+
+
         /* + Task config: Update json */
         update_json: {
             bower: {
@@ -58,10 +68,14 @@ module.exports = function(grunt) {
         },
         /* = Task config: Update json */
 
+
+
         /* + Task Config: Concatenation */
         concat: {
         },
         /* = Task Config: Concatenation */
+
+
 
         /* + Task Config: SASS */
         sass: {
@@ -81,6 +95,8 @@ module.exports = function(grunt) {
         },
         /* = Task Config: SASS */
 
+
+
         /* + Task Config: Autoprefixer */
         autoprefixer: {
             options: {
@@ -98,6 +114,7 @@ module.exports = function(grunt) {
         /* = Task Config: Autoprefixer */
 
 
+
         /* + Task Config: CSSMin */
         cssmin: {
             // SourceMaps maybe with 2.1: https://github.com/GoalSmashers/clean-css/issues/125
@@ -112,6 +129,7 @@ module.exports = function(grunt) {
         /* = Task Config: CSSMin */
 
 
+
         /* + Task Config: JSHint */
         jshint: {
             options: {
@@ -123,6 +141,7 @@ module.exports = function(grunt) {
             }
         },
         /* = Task Config: JSHint */
+
 
 
         /* + Task Config: Uglify */
@@ -141,7 +160,9 @@ module.exports = function(grunt) {
             }
         },
         /* = Task Config: Uglify */
-        
+
+
+
         /* + Task Config: Browser Sync */
         browserSync: {
             elena: {
@@ -157,7 +178,7 @@ module.exports = function(grunt) {
                         forms: true,
                         scroll: true
                     },
-                    
+
                     server: {
                         baseDir: "web",
                         directory: true
@@ -166,6 +187,7 @@ module.exports = function(grunt) {
             }
         },
         /* = Task Config: Browser Sync */
+
 
 
         /* + Task Config: Watch */
@@ -210,39 +232,59 @@ module.exports = function(grunt) {
                 ]
             }
         },
+        /* = Task Config: Watch */
+
+
 
     });
+    /* = Project Configuration */
+
+
 
     /* + Custom Tasks */
+
+    // copy dependencies
     grunt.registerTask( 'copy-deps', [
         // 'clean:deps',
         'copy'
     ]);
+
+    // process stylesheets
     grunt.registerTask( 'build-css', [
         // 'clean:css',
         'sass',
         'autoprefixer',
         'cssmin'
     ]);
+
+    // process javascripts
     grunt.registerTask( 'build-js', [
         // 'clean:js',
         'jshint:scripts',
         'uglify'
     ]);
+
+    // process everything
     grunt.registerTask( 'build', [
         'update_json:bower',
         'copy-deps',
         'build-css',
-        'build-js',
-        'clean'
+        'build-js'
     ]);
+
+    // start sync and watch
     grunt.registerTask( 'sync', [
         'browserSync',
         'watch'
     ]);
+
+    // build job as default
     grunt.registerTask( 'default', [
         'build'
     ]);
+
     /* = Custom Tasks */
+
+
 
 };
