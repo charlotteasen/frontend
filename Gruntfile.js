@@ -128,6 +128,21 @@ module.exports = function(grunt) {
         /* = Task Config: Autoprefixer */
 
 
+        /* + Task Config: Combine Media Queries */
+        cmq: {
+            options: {
+                log: true
+            },
+            your_target: {
+                files: {
+                    '<%= globalConfig.temp %>/css/main.combined.css': [
+                        '<%= globalConfig.temp %>/css/main.css'
+                    ]
+                }
+            }
+        },
+        /* = Task Config: Combine Media Queries */
+
 
         /* + Task Config: CSSMin */
         cssmin: {
@@ -135,7 +150,7 @@ module.exports = function(grunt) {
             styles: {
                 files: {
                     '<%= globalConfig.dest %>/css/main.min.css': [
-                        '<%= globalConfig.temp %>/css/main.css'
+                        '<%= globalConfig.temp %>/css/main.combined.css'
                     ]
                 }
             }
