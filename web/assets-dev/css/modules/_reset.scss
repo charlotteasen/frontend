@@ -14,9 +14,20 @@ html {
     -webkit-font-smoothing: antialiased; /* mac font appears bold bug fix*/
 }
 
-* { // are we normalizing or resetting?
+* {
     margin:0;
     padding:0;
-    // outline:none; <- EVIL !!!
     border:none;
+}
+
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
 }
