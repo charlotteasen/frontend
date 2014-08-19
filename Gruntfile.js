@@ -106,8 +106,8 @@ module.exports = function(grunt) {
         sass: {
             options : {
                 precision: 10,
-                sourcemap: true,
-                trace: true,
+                sourcemap: false, // disabled, as sourcemaps will be messed up by cmq and cssmin
+                trace: false,
                 unixNewlines: true,
                 cacheLocation: '<%= globalConfig.root %>/.sass-cache'
             },
