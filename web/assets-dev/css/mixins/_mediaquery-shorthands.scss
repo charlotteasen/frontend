@@ -1,0 +1,97 @@
+/* + Media query shorthands */
+
+@mixin mq-min ( $minWidth ) {
+    @media (min-width: $minWidth) {
+        @content
+    }
+}
+
+@mixin mq-min-max( $minWidth, $maxWidth) {
+    @media (min-width: $minWidth) and (max-width: $maxWidth) {
+        @content
+    }
+}
+
+@mixin mq-max( $maxWidth ) {
+    @media (max-width: $maxWidth) {
+        @content
+    }
+}
+
+// xs only
+@mixin mq-xs {
+    @include mq-max( $screen-xs ) {
+        @content
+    }
+}
+
+// sm and larger
+@mixin mq-sm-min {
+    @include mq-min( $screen-sm-min ) {
+        @content
+    }
+}
+
+// sm only
+@mixin mq-sm {
+    @include mq-min-max( $screen-sm-min, $screen-sm-max ) {
+        @content
+    }
+}
+
+// sm and smaller
+@mixin mq-sm-max {
+    @include mq-max( $screen-sm-max ) {
+        @content
+    }
+}
+
+// md and larger
+@mixin mq-md-min {
+    @include mq-min( $screen-md-min ) {
+        @content
+    }
+}
+
+// md only
+@mixin mq-md {
+    @include mq-min-max( $screen-md-min, $screen-md-max ) {
+        @content
+    }
+}
+
+// md and smaller
+@mixin mq-md-max {
+    @include mq-max( $screen-md-max ) {
+        @content
+    }
+}
+
+// lg and larger
+@mixin mq-lg-min {
+    @include mq-min( $screen-lg-min ) {
+        @content
+    }
+}
+
+// lg only
+@mixin mq-lg {
+    @include mq-min-max( $screen-lg-min, $screen-lg-max ) {
+        @content
+    }
+}
+
+// lg and smaller
+@mixin mq-lg-max {
+    @include mq-max( $screen-lg-max ) {
+        @content
+    }
+}
+
+// xl and larger
+@mixin mq-xl {
+    @include mq-min( $screen-xl-min ) {
+        @content
+    }
+}
+/* = Media query shorthands */
