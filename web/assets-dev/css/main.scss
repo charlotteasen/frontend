@@ -20,6 +20,13 @@ $large-spacing: $standard-spacing * 2;
 
 /* = Variablen (Farben, Fonts, etc) */
 
+/* + Bootstrap imports */
+@import "vendor/bootstrap/mixins/clearfix";
+@import "vendor/bootstrap/mixins/grid-framework";
+@import "vendor/bootstrap/mixins/grid";
+@import "vendor/bootstrap/grid";
+/* = Bootstrap imports */
+
 /* + Reset */
 @import "modules/normalize"; /* customized normalize.css v3.0.0 */
 @import "modules/reset"; /* reset/normalize extensions */
