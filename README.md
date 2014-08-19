@@ -6,19 +6,22 @@ Initial Frontend Boilerplate
 ## Inhalt
 
 1. [Grunt Tasks](#grunttasks)
+    1. [Task Übersicht](#grunttaskoverview)
 2. [SASS Variablen](#sassvars)
 3. [SASS Mixins](#sassmixins)
 	1. [Media Query Shorthands](#mqshorthands)
 
 
-## [Grunt Task Übersicht](id:grunttasks)
+## [Grunt Tasks](id:grunttasks)
+
+### [Task Übersicht](id:grunttaskoverview)
 
 | Parameter      | Task(s)               |
 |----------------|-----------------------|
 | `default`      | -> `build`
-| `build`        | vollständiger Build-Job (`copy-deps`, `copy-css`, `copy-js`)
+| `build`        | vollständiger Build-Job (`clean:deps`, `copy-deps`, `copy-css`, `copy-js`, `clean:temp)
 | `copy-deps`    | kopiert Abhängigkeiten
-| `build-css`    | kompiliert SASS, fügt Vendor-Präfixe hinzu und konkateniert/minimiert CSS
+| `build-css`    | kompiliert SASS, fügt Vendor-Präfixe hinzu, kombiniert Media-Queries und konkateniert/minimiert CSS
 | `build-js`     | konkateniert/minimiert Javascripts
 | `sync`         | startet BrowserSync und Watch
 | `watch`        | startet Watch
@@ -35,7 +38,7 @@ Initial Frontend Boilerplate
 | `$screen-sm` | 768px         | <span style="color:#fe57a1">__sm__</span>all screens / Tablets
 | `$screen-md` | 992px         | <span style="color:#fe57a1">__m__</span>e<span style="color:#fe57a1">__d__</span>ium screens / Desktops
 | `$screen-lg` | 1200px        | <span style="color:#fe57a1">__l__</span>ar<span style="color:#fe57a1">__g__</span>e screens / Wide Desktops
-| `$screen-xl` | 1600px        | e<span style="color:#fe57a1">__x__</span>tra <span style="color:#fe57a1">__l__</span>arge screen / Large Desktops
+| `$screen-xl` | 1600px        | e<span style="color:#fe57a1">__x__</span>tra <span style="color:#fe57a1">__l__</span>arge screens / Large Desktops
 
 ## SASS Mixins
 
