@@ -6,18 +6,7 @@
 /* = Function imports */
 
 /* + Variablen (Farben, Fonts, etc) */
-$standard-color: #404040;
-$primary-color: #00617d;
-$primary-color--active: #00617d;
-$secondary-color: #6dc1dc;
-$secondary-color--active: #6dc1dc;
-
-$error-color: #a15456;
-
-$font-size-normal: 14px;
-$standard-spacing: 14px;
-$large-spacing: $standard-spacing * 2;
-
+@import "variables"
 /* = Variablen (Farben, Fonts, etc) */
 
 /* + Bootstrap imports */
@@ -33,6 +22,7 @@ $large-spacing: $standard-spacing * 2;
 /* = Reset */
 
 /* + General styles (Typo, Formulare, Tabellen, etc) */
+@import "styles";
 /* = General styles (Typo, Formulare, Tabellen, etc) */
 
 /* + Styles höherer Ordnung (OOCSS – Nicht-modulspezifische oder modulübergreifende Styles) */
