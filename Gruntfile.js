@@ -277,6 +277,11 @@ module.exports = function(grunt) {
         'copy'
     ]);
 
+    // clean temporary files/folders
+    grunt.registerTask( 'clean-temp', [
+        'clean:temp'
+    ]);
+
     // process stylesheets
     grunt.registerTask( 'build-css', [
         // 'clean:css',
