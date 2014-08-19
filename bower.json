@@ -14,6 +14,7 @@
     "Thumbs.db"
   ],
   "devDependencies": {
-    "jquery": "~2.1.1"
+    "jquery": "~2.1.1",
+    "bootstrap-sass-official": "~3.2.0"
   }
 }

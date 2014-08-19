@@ -48,6 +48,20 @@ module.exports = function(grunt) {
                 src: '<%= globalConfig.root %>/bower_components/jquery/dist/*',
                 dest: '<%= globalConfig.dest %>/js/vendor/jquery/',
                 flatten: true
+            },
+
+            // bootstrap
+            bootstrap: {
+                expand: true,
+                cwd: '<%= globalConfig.root %>/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/',
+                src: [
+                    'mixins/_clearfix.scss',
+                    'mixins/_grid-framework.scss',
+                    'mixins/_grid.scss',
+                    '_grid.scss'
+                ],
+                dest: '<%= globalConfig.src %>/css/vendor/bootstrap/',
+                flatten: false
             }
 
         },
