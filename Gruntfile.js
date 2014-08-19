@@ -168,6 +168,9 @@ module.exports = function(grunt) {
             },
             scripts: {
                 src: '<%= globalConfig.src %>/js/main.js'
+            },
+            grunt: {
+                src: 'Gruntfile.js'
             }
         },
         /* = Task Config: JSHint */
@@ -208,7 +211,7 @@ module.exports = function(grunt) {
                     },
 
                     server: {
-                        baseDir: "web",
+                        baseDir: 'web',
                         directory: true
                     }
                 }
