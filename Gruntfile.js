@@ -2,7 +2,6 @@ module.exports = function(grunt) {
     'use strict';
 
 
-
     /* + Global Project Vars */
     // Usage: <%= globalConfig.var %>
     var globalConfig = {
@@ -14,19 +13,16 @@ module.exports = function(grunt) {
     /* = Global Project Vars */
 
 
-
     /* + Preparation */
     require('load-grunt-tasks')(grunt); // Load all grunt tasks matching the `grunt-*` pattern
     grunt.util.linefeed = '\n'; // Force use of Unix newlines
     /* = Preparation */
 
 
-
     /* + Project Tasks */
     grunt.initConfig({
         globalConfig: globalConfig, // include Global Config
         pkg: grunt.file.readJSON('package.json'), // Get npm package data
-
 
 
         /* + Task Config: Clean */
@@ -49,11 +45,10 @@ module.exports = function(grunt) {
         /* = Task Config: Clean */
 
 
-
         /* + Task Config: Copy dependency files */
         copy: {
 
-            // local jquery
+            // local jquery alternative
             jquery: {
                 expand: true,
                 src: '<%= globalConfig.root %>/bower_components/jquery/dist/*',
@@ -61,7 +56,7 @@ module.exports = function(grunt) {
                 flatten: true
             },
 
-            // bootstrap
+            // bootstrap basics
             bootstrap: {
                 expand: true,
                 cwd: '<%= globalConfig.root %>/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/',
@@ -79,7 +74,6 @@ module.exports = function(grunt) {
         /* = Task Config: Copy dependency files */
 
 
-
         /* + Task config: Update json */
         update_json: {
             bower: {
@@ -94,12 +88,10 @@ module.exports = function(grunt) {
         /* = Task config: Update json */
 
 
-
         /* + Task Config: Concatenation */
         concat: {
         },
         /* = Task Config: Concatenation */
-
 
 
         /* + Task Config: SASS */
@@ -119,7 +111,6 @@ module.exports = function(grunt) {
             }
         },
         /* = Task Config: SASS */
-
 
 
         /* + Task Config: Autoprefixer */
@@ -144,9 +135,9 @@ module.exports = function(grunt) {
             options: {
                 log: true
             },
-            your_target: {
+            styles: {
                 files: {
-                    '<%= globalConfig.temp %>/css/main.combined.css': [
+                    '<%= globalConfig.temp %>/css/combined-media-queries/': [
                         '<%= globalConfig.temp %>/css/main.css'
                     ]
                 }
@@ -157,17 +148,16 @@ module.exports = function(grunt) {
 
         /* + Task Config: CSSMin */
         cssmin: {
-            // SourceMaps maybe with 2.1: https://github.com/GoalSmashers/clean-css/issues/125
+            // SourceMaps maybe supported with clean-css 2.1: https://github.com/GoalSmashers/clean-css/issues/125
             styles: {
                 files: {
                     '<%= globalConfig.dest %>/css/main.min.css': [
-                        '<%= globalConfig.temp %>/css/main.combined.css'
+                        '<%= globalConfig.temp %>/css/combined-media-queries/main.css'
                     ]
                 }
             }
         },
         /* = Task Config: CSSMin */
-
 
 
         /* + Task Config: JSHint */
@@ -177,11 +167,10 @@ module.exports = function(grunt) {
                 'quotmark' : 'single'
             },
             scripts: {
-                src: '<%= globalConfig.src %>js/main.js'
+                src: '<%= globalConfig.src %>/js/main.js'
             }
         },
         /* = Task Config: JSHint */
-
 
 
         /* + Task Config: Uglify */
@@ -200,7 +189,6 @@ module.exports = function(grunt) {
             }
         },
         /* = Task Config: Uglify */
-
 
 
         /* + Task Config: Browser Sync */
@@ -227,7 +215,6 @@ module.exports = function(grunt) {
             }
         },
         /* = Task Config: Browser Sync */
-
 
 
         /* + Task Config: Watch */
@@ -275,10 +262,8 @@ module.exports = function(grunt) {
         /* = Task Config: Watch */
 
 
-
     });
     /* = Project Configuration */
-
 
 
     /* + Custom Tasks */
@@ -292,16 +277,17 @@ module.exports = function(grunt) {
     // process stylesheets
     grunt.registerTask( 'build-css', [
         // 'clean:css',
-        'sass',
-        'autoprefixer',
-        'cssmin'
+        'sass:styles',
+        'autoprefixer:styles',
+        'cmq:styles',
+        'cssmin:styles'
     ]);
 
     // process javascripts
     grunt.registerTask( 'build-js', [
         // 'clean:js',
         'jshint:scripts',
-        'uglify'
+        'uglify:scripts'
     ]);
 
     // process everything
