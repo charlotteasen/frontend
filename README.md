@@ -19,13 +19,14 @@ Initial Frontend Boilerplate
 | Parameter      | Task(s)               |
 |----------------|-----------------------|
 | `default`      | -> `build`
-| `build`        | vollständiger Build-Job (`clean:deps`, `copy-deps`, `copy-css`, `copy-js`, `clean:temp)
-| `copy-deps`    | kopiert Abhängigkeiten
+| `build`        | vollständiger Build-Job (`json_update`, `copy-deps`, `copy-css`, `copy-js`, `clean-temp`)
+| `copy-deps`    | löscht existierende Abhängigkeiten, kopiert Abhängigkeiten neu aus *bower_components*
 | `build-css`    | kompiliert SASS, fügt Vendor-Präfixe hinzu, kombiniert Media-Queries und konkateniert/minimiert CSS
-| `build-js`     | konkateniert/minimiert Javascripts
+| `build-js`     | konkateniert, linted und minimiert Javascripts
 | `sync`         | startet BrowserSync und Watch
 | `watch`        | startet Watch
 | `update_json`  | aktualisiert Version und Name in _bower.json_ mit Daten aus _package.json_
+| `clean-temp`   | löscht *assets-temp*
 
 
 ## SASS Variablen
@@ -34,11 +35,11 @@ Initial Frontend Boilerplate
 
 | Variable     | Standardwert  | Beschreibung  |
 |--------------|---------------|---------------|
-| `$screen-xs` | 480px         | e<span style="color:#fe57a1">__x__</span>tra <span style="color:#fe57a1">__s__</span>mall screens / Smartphones
-| `$screen-sm` | 768px         | <span style="color:#fe57a1">__sm__</span>all screens / Tablets
-| `$screen-md` | 992px         | <span style="color:#fe57a1">__m__</span>e<span style="color:#fe57a1">__d__</span>ium screens / Desktops
-| `$screen-lg` | 1200px        | <span style="color:#fe57a1">__l__</span>ar<span style="color:#fe57a1">__g__</span>e screens / Wide Desktops
-| `$screen-xl` | 1600px        | e<span style="color:#fe57a1">__x__</span>tra <span style="color:#fe57a1">__l__</span>arge screens / Large Desktops
+| `$screen-xs` | 480px         | e<span style="color:#fe57a1">__X__</span>tra <span style="color:#fe57a1">__S__</span>mall screens / Smartphones
+| `$screen-sm` | 768px         | <span style="color:#fe57a1">__SM__</span>all screens / Tablets
+| `$screen-md` | 992px         | <span style="color:#fe57a1">__M__</span>e<span style="color:#fe57a1">__D__</span>ium screens / Desktops
+| `$screen-lg` | 1200px        | <span style="color:#fe57a1">__L__</span>ar<span style="color:#fe57a1">__G__</span>e screens / Wide Desktops
+| `$screen-xl` | 1600px        | e<span style="color:#fe57a1">__X__</span>tra <span style="color:#fe57a1">__L__</span>arge screens / Large Desktops
 
 ## SASS Mixins
 
@@ -62,3 +63,51 @@ Initial Frontend Boilerplate
 | `mq-xl`                    | nur XL
 
 (siehe auch *[SASS Variablen: Media Query Breakpoints](#mqbreakpoints)*)
+
+#### Beispiele
+
+__SASS Input:__
+
+    .first-box {
+        width: 100px;
+        @include mq-md-min {
+            width: 150px;
+        }
+    }
+
+    @include mq-lg {
+        .second-box {
+            width: 300px;
+        }
+    }
+
+    @include mq-min( 1500px ) {
+        .third-box {
+            background: blue;
+        }
+    }
+
+
+__CSS Output:__
+
+    .first-box {
+        width: 100px;
+    }
+
+    @media (min-width: 992px) {
+        .first-box {
+            width: 150px;
+        }
+    }
+
+    @media (min-width: 1200px) and (max-width: 1599px) {
+        .second-box {
+            width: 300px;
+        }
+    }
+    @media (min-width: 1500px) {
+        .third-box {
+            background: blue;
+        }
+    }
+
