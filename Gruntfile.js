@@ -31,9 +31,20 @@ module.exports = function(grunt) {
 
         /* + Task Config: Clean */
         clean: {
+
+            // temporary files
+            temp: [
+                ['<%= globalConfig.temp %>']
+            ],
+
+            // dependencies / vendor folders
             deps: [
-                ['<%= globalConfig.temp %>/']
+                ['<%= globalConfig.dest %>/js/vendor/**/*'],
+                ['<%= globalConfig.dest %>/css/vendor/**/*'],
+                ['<%= globalConfig.src %>/js/vendor/**/*'],
+                ['<%= globalConfig.src %>/css/vendor/**/*']
             ]
+
         },
         /* = Task Config: Clean */
 
@@ -274,7 +285,7 @@ module.exports = function(grunt) {
 
     // copy dependencies
     grunt.registerTask( 'copy-deps', [
-        // 'clean:deps',
+        'clean:deps',
         'copy'
     ]);
 
@@ -298,7 +309,8 @@ module.exports = function(grunt) {
         'update_json:bower',
         'copy-deps',
         'build-css',
-        'build-js'
+        'build-js',
+        'clean:temp'
     ]);
 
     // start sync and watch
