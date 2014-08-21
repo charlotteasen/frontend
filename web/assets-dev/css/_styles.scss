@@ -1,0 +1,14 @@
+/*
+
+    place your project/custom styles and edit what needs to be changed
+
+ */
+
+body {
+    font-family: $font-stack-sansserif;
+    color: $color-foreground;
+    background: $color-background;
+    line-height: $line-height-normal;
+}
+
+@import "demo"; // only for frontend repo demo and tests, can be removed for your project

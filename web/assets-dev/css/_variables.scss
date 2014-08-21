@@ -49,12 +49,16 @@ $color-hotpink:                 #fe57a1;
 
 
 /* + Typo */
+// font sizes
 $font-size-normal:              14px;
 $font-size-small:               11px;   // ~ 14 * 0.8
 $font-size-large:               20px;   // ~ 14 * 1.5
+// font stacks
 $font-stack-sansserif:          "Helvetica Neue", Helvetica, "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", Tahoma, Geneva,  Arial, sans-serif;
 $font-stack-serif:              "Droid Serif", Georgia, "Lucida Serif", Lucida, "DejaVu Serif", Times, "Times New Roman", serif;
 $font-stack-monospace:          Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace;
+// line heights
+$line-height-normal:            1.42857; // 20/14
 /* = */
 
 

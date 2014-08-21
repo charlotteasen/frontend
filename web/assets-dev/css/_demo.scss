@@ -1,0 +1,38 @@
+/* + main containers */
+body > header > div,
+main > article,
+body > footer > div {
+    @extend .container;
+}
+
+$color-header: $color-hotpink;
+body > header {
+    background: $color-header linear-gradient(180deg, $color-header, lighten($color-header,10%));
+    color: #fff;
+    text-shadow: .1em .1em .4em rgba(0,0,0,.45);
+}
+
+main {
+
+}
+
+body > footer {
+}
+/* = main containers */
+
+
+/* = code content */
+code,
+kbd,
+pre,
+samp {
+    font-family: $font-stack-monospace;
+}
+
+code {
+    background: #ddd;
+    border-radius: .2em;
+    padding: .1em .2em;
+}
+/* + code content */
+

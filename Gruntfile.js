@@ -116,15 +116,17 @@ module.exports = function(grunt) {
         /* + Task Config: Autoprefixer */
         autoprefixer: {
             options: {
-                browsers: [ // @https://github.com/ai/autoprefixer#browsers
-                    'last 2 versions'
+                browsers: [ // @https://github.com/postcss/autoprefixer#browsers
+                    'last 2 versions',
+                    '> 3%',
+                    'Opera 12.1',
+                    'Firefox ESR'
                 ],
                 map: false // not supported by cssmin
             },
             styles: {
-                no_dest: {
-                    src: '<%= globalConfig.temp %>/css/main.css'
-                }
+                src: '<%= globalConfig.temp %>/css/main.css',
+                dest: '<%= globalConfig.temp %>/css/main.css'
             }
         },
         /* = Task Config: Autoprefixer */
